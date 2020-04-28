@@ -19,11 +19,11 @@ Final Project for CS109B (Data Science for Case Law) - Group 45
 
 **Suggested extractive reading list from the NLP Progress Summarization link:**
 
- 1. [Learning to Extract Coherent Summary via Deep Reinforcement Learning](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16838/16118)
+ 1. [Learning to Extract Coherent Summary via Deep Reinforcement Learning](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/view/16838/16118) (Fernando)
  1. [Extractive Summarization with SWAP-NET: Sentences and Words from Alternating Pointer Networks](http://aclweb.org/anthology/P18-1014)
  1. [A Hierarchical Structured Self-Attentive Model for Extractive Document Summarization (HSSAS)](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8344797)
  1. [SummaRuNNer: A Recurrent Neural Network based Sequence Model for Extractive Summarization of Documents](https://arxiv.org/abs/1611.04230) (Gufran)
- 1. [Extractive Summarization as Text Matching](https://arxiv.org/abs/2004.08795)
+ 1. [Extractive Summarization as Text Matching](https://arxiv.org/abs/2004.08795) (Fernando)
  1. [Text Summarization with Pretrained Encoders](https://arxiv.org/abs/1908.08345) (Gufran)
 
 There are 4 states with available data and can be downloaded from this link: [Caselaw Access Project/Bulk Data](https://case.law/bulk/download/)
