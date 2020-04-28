@@ -1,6 +1,14 @@
 # case_law_g45
 Final Project for CS109B (Data Science for Case Law) - Group 45
 
+## Group Members
+
+| Name          |  |  |
+|:-------------:|:-|-:|
+| Gufran Pathan |  |  |
+| Prerna Aggarwal |  |  |
+| Fernando Medeiros |  |  |
+
 ## Links:
 
 [Module C: Data Science for Caselaw Project Data Link](https://drive.google.com/drive/folders/1Dvtk_rxNK-4tXYmRWZhX2no9TrFTu8SD)
