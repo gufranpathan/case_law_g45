@@ -16,6 +16,8 @@ Suggested extractive reading list from the NLP Progress Summarization link:
     1. [Extractive Summarization as Text Matching](https://arxiv.org/abs/2004.08795)
     1. [Text Summarization with Pretrained Encoders](https://arxiv.org/abs/1908.08345)
 
+There are 4 states with available data. New Mexico is provided here, the rest can be downloaded from this link: [Caselaw Access Project/Bulk Data](https://case.law/bulk/download/)
+
 TASK LIST:
 
  - [x] First Task
