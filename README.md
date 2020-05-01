@@ -75,11 +75,15 @@ We should pick up three to four techniques to try.
  - Casebody in XML
  - Casebody includes headnotes
  - Some cases do not have headnotes, we will exclude those cases from the data
+  - Cases (id==4325043) that have no authors/judges (casebody.data.judges) have no headnotes  
+    example:  
+    data[data.id==4325043]['casebody.data.judges'].iloc[0]  
+    data[data.id==4325043]['casebody.data.head_matter'].iloc[0]  
 
 ## Open Questions:
 
  - Where are headnotes in the dataset? The new North Carolina data includes the headnotes--redownload the data from the project link above.
  - Why are there more headnotes than cases? _Headnotes are summaries of legal principles which each case have many. Lawyers use headnotes as shortcuts for looking for legal principles to use and what other cases have similar headnotes_
- - **It appears that the headnotes are different from the casebody, excluding the headnotes. Can we use the extractive approach since the headnotes are more abstractive than extractive?**
+ - It appears that the headnotes are different from the casebody, excluding the headnotes. Can we use the extractive approach since the headnotes are more abstractive than extractive? _Using the text version has the headnotes separated._
  - **Do we use other dataset fields other than the casebody?**
  - **What format should the casebody take? Should it contain all the text, minus the XML tags and headnotes, in one long string?**
