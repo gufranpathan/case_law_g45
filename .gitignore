@@ -1,4 +1,8 @@
 
 .DS_Store
 *.xz
-*.ckpt
+sample/
+temp/
+data/
+__pycache__/
+.ipynb_checkpoints/
