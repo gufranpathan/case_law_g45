@@ -1,3 +1,8 @@
 
 .DS_Store
 *.xz
+sample/
+temp/
+data/
+__pycache__/
+.ipynb_checkpoints/
