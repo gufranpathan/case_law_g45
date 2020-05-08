@@ -3,7 +3,13 @@
 *.xz
 sample/
 temp/
-data/
+/data/
 __pycache__/
 .ipynb_checkpoints/
 *.ckpt
+presumm_data/
+jupyter.lnk
+logs/
+venv/
+model_files/
+/results/
