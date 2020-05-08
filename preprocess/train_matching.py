@@ -92,6 +92,7 @@ def test_model(args):
     
     # need 1 gpu for testing
     device = int(args.gpus)
+    device = None
     
     args.batch_size = 1
 
