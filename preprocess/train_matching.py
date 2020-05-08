@@ -8,12 +8,12 @@ from datetime import timedelta
 from os.path import join, exists
 from torch.optim import Adam
 
-from utils import read_jsonl, get_data_path, get_result_path
+from preprocess.utils import read_jsonl, get_data_path, get_result_path
 
-from dataloader import MatchSumPipe
-from model import MatchSum
-from metrics import MarginRankingLoss, ValidMetric, MatchRougeMetric
-from callback import MyCallback
+from preprocess.dataloader import MatchSumPipe
+from preprocess.model import MatchSum
+from preprocess.metrics import MarginRankingLoss, ValidMetric, MatchRougeMetric
+from preprocess.callback import MyCallback
 from fastNLP.core.trainer import Trainer
 from fastNLP.core.tester import Tester
 from fastNLP.core.callback import SaveModelCallback
