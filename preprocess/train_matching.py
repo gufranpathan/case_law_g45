@@ -8,12 +8,12 @@ from datetime import timedelta
 from os.path import join, exists
 from torch.optim import Adam
 
-from preprocess.utils import read_jsonl, get_data_path, get_result_path
+from utils import read_jsonl, get_data_path, get_result_path
 
-from preprocess.dataloader import MatchSumPipe
-from preprocess.model import MatchSum
-from preprocess.metrics import MarginRankingLoss, ValidMetric, MatchRougeMetric
-from preprocess.callback import MyCallback
+from dataloader import MatchSumPipe
+from model import MatchSum
+from metrics import MarginRankingLoss, ValidMetric, MatchRougeMetric
+from callback import MyCallback
 from fastNLP.core.trainer import Trainer
 from fastNLP.core.tester import Tester
 from fastNLP.core.callback import SaveModelCallback
@@ -143,7 +143,7 @@ if __name__ == '__main__':
                         help='number of update steps for validation and saving checkpoint', type=int)
 
     args = parser.parse_known_args()[0]
-    
+    print(args)
     if args.mode == 'train':
         print('Training process of MatchSum !!!')
         train_model(args)
