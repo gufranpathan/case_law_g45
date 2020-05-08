@@ -1,0 +1,23 @@
+ python train.py -task ext -mode validate -batch_size 3000 -test_batch_size 500 -bert_data_path ../bert_data -log_file ../logs/val_abs_bert_cnndm -model_path ../models -sep_optim true -use_interval true  -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ../logs/abs_bert_cnndm 
+
+python train.py -task ext -mode test_text -text_src ./raw_data/temp.raw_src -test_from ../models/bertext_cnndm_transformer.pt -result_path ../logs/raw_res
+
+python train.py -task ext -mode test_text -text_src ../raw_data/temp_ext.raw_src -test_from ../models/bertext_cnndm_transformer.pt -result_path ../logs/raw_res
+
+python preprocess.py -mode tokenize -raw_path ../sample/raw_data -save_path ../sample/tokenized_data -log_file ../logs/tokenize2.log
+
+
+python preprocess.py -mode format_to_lines -raw_path ../sample/tokenized_data -save_path ../sample/json_data/ -n_cpus 1 -use_bert_basic_tokenizer false -map_path ../urls -log_file ../logs/to_lines3.log
+
+
+python preprocess.py -mode format_to_bert -raw_path ../sample/json_data/ -save_path ../sample/bert_data/ -lower -n_cpus 1 -log_file ../logs/bert.log
+
+
+python train.py -task abs -mode train -bert_data_path ./presumm_data -ext_dropout 0.1 -model_path ./models_data -lr 2e-3 -report_every 1 -save_checkpoint_steps 1 -batch_size 8 -train_steps 2 -accum_count 2 -log_file ./logs/ext_bert_cnndm -use_interval true -warmup_steps 1 -max_pos 512
+
+
+python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ../bert_data/sample -log_file ../logs/val_abs_bert_cnndm -model_path ../models -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ../results/validation_results2 -test_from ../models/bertext_cnndm_transformer.pt
+
+perl  C:\ROUGE-1.5.5\ROUGE-1.5.5.pl -e C:\ROUGE-1.5.5\data -c 95 -m -r 1000 -n 2 -a ../temp\tmpmhbjirh4\rouge_conf.xml
+
+python train.py -task abs -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ../bert_data/sample -log_file ../logs/val_abs_bert_cnndm -model_path  ../models/bertsumextabs_cnndm_final_model -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ../logs/abs_bert_cnndm -test_from ../models/bertsumextabs_cnndm_final_model/model_step_148000.pt
