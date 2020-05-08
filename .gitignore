@@ -3,7 +3,7 @@
 *.xz
 sample/
 temp/
-data/
+/data/
 __pycache__/
 .ipynb_checkpoints/
 *.ckpt
