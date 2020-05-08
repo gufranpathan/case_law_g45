@@ -10,3 +10,6 @@ __pycache__/
 presumm_data/
 jupyter.lnk
 logs/
+venv/
+model_files/
+/results/
