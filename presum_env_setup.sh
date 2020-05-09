@@ -4,7 +4,7 @@ sudo yum update
 sudo yum install xfsprogs
 sudo mkfs -t xfs /dev/xvdf
 sudo mkdir /data
-sudo mount /dev/xvdf /data
+sudo mount /dev/nvme1n1 /data
 sudo chmod 777 -R data
 
 sudo yum install git
@@ -34,10 +34,10 @@ mkdir logs
 
 sudo yum install "perl(XML::Parser)" -y
 sudo yum install "perl(DB_File)" -y
+gdown https://drive.google.com/uc?id=1CPFDr1SVipWIlr8kJCizM4e1MVS3bLk5
 
 
-
-python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/ext -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/ext_bert_cnndm -test_from ./model_files/ext/bertext_cnndm_transformer.pt
+python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/ext -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/ext_bert_cnndm -test_from ./model_files/ext/bertext_cnndm_transformer.pt -n_cpus 32
 
 
 #Add train.py
