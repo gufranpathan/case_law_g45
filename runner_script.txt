@@ -23,3 +23,6 @@ perl  C:\ROUGE-1.5.5\ROUGE-1.5.5.pl -e C:\ROUGE-1.5.5\data -c 95 -m -r 1000 -n 2
 python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/ext -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/ext_bert_cnndm -test_from ./model_files/ext/bertext_cnndm_transformer.pt
 
 python train.py -task abs -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/abs -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/abs_bert_cnndm -test_from ./model_files/abs/model_step_148000.pt
+
+
+python train.py -task ext -mode train -bert_data_path ./data/sample -ext_dropout 0.1 -model_path ./model_files/trained/ext -lr 2e-3 -report_every 1 -save_checkpoint_steps 1 -batch_size 500 -train_steps 5 -accum_count 2 -log_file ./logs/train_ext -use_interval true -warmup_steps 1 -max_pos 512 -train_from
