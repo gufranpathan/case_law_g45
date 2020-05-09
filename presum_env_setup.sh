@@ -5,6 +5,7 @@ sudo yum install xfsprogs
 sudo mkfs -t xfs /dev/xvdf
 sudo mkdir /data
 sudo mount /dev/nvme1n1 /data
+cd /data
 sudo chmod 777 -R data
 
 sudo yum install git
@@ -15,6 +16,7 @@ sudo yum install python36 python36-pip
 cd case_law_g45
 python3 -m venv venv
 source venv/bin/activate
+pip install --upgrade pip
 pip install wheel
 pip install https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
 pip install pytorch-transformers tensorboardX pyrouge gdown jupyter
@@ -27,21 +29,19 @@ pyrouge_set_rouge_path ./ROUGE-1.5.5
 mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/ext && cd model_files/pre_trained/ext
 gdown https://drive.google.com/uc?id=1kKWoV0QCbeIuFt85beQgJ4v0lujaXobJ
 unzip bertext_cnndm_transformer.zip
+cd ../../..
 
-mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/abs_bertextabs && cd model_files/pre_trained/abs_bertextabs
+mkdir model_files/pre_trained/abs_bertextabs && cd model_files/pre_trained/abs_bertextabs
 gdown https://drive.google.com/uc?id=1Qksodfu4rHig_-h2UYph8e4XlRN_3rwb
 unzip bertsumextabs_cnndm_final_model.zip
+cd ../../..
 
-mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/abs_transformer && cd model_files/pre_trained/abs_transformer
-gdown https://drive.google.com/uc?id
-unzip .zip
+mkdir model_files/pre_trained/abs_transformer && cd model_files/pre_trained/abs_transformer
+gdown https://drive.google.com/uc?id=1VS2oUdrjPLaCGpSlx5zZ681GSWkRWU2k
+unzip cnndm_baseline_best.zip
+cd ../../..
 
-
-cd .. 
-mkdir results
-mkdir results/pre_trained/
-mkdir results/trained/
-mkdir logs
+mkdir results && mkdir results/pre_trained/ && mkdir results/trained/ && mkdir logs
 
 mkdir data && cd data
 gdown https://drive.google.com/uc?id=17JqUauBz0AN28BdPJ9USYRksVv92w8sh
