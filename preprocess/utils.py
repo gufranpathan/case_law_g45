@@ -12,14 +12,14 @@ def read_jsonl(path):
 def get_data_path(mode, encoder):
     paths = {}
     if mode == 'train':
-        paths['train'] = 'data/train_CNNDM_' + encoder + '.jsonl'
-        paths['val']   = 'data/val_CNNDM_' + encoder + '.jsonl'
+        paths['train'] = '../data/train_CNNDM_' + encoder + '.jsonl'
+        paths['val']   = '../data/val_CNNDM_' + encoder + '.jsonl'
     else:
-        paths['test']  = 'data/test_CNNDM_' + encoder + '.jsonl'
+        paths['test']  = '../data/test_CNNDM_' + encoder + '.jsonl'
     return paths
 
 def get_result_path(save_path, cur_model):
-    result_path = join(save_path, '../result')
+    result_path = join(save_path, '../data/result')
     if not exists(result_path):
         os.makedirs(result_path)
     model_path = join(result_path, cur_model)

@@ -10,6 +10,9 @@ __pycache__/
 presumm_data/
 jupyter.lnk
 logs/
+val_cases.json
+train_cases.json
+test_cases.json
 venv/
 model_files/
 /results/

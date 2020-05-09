@@ -92,6 +92,7 @@ def test_model(args):
     
     # need 1 gpu for testing
     device = int(args.gpus)
+    device = None
     
     args.batch_size = 1
 
@@ -143,7 +144,7 @@ if __name__ == '__main__':
                         help='number of update steps for validation and saving checkpoint', type=int)
 
     args = parser.parse_known_args()[0]
-    
+    print(args)
     if args.mode == 'train':
         print('Training process of MatchSum !!!')
         train_model(args)
