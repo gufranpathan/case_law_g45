@@ -81,8 +81,8 @@ def load_dataset(args, corpus_type, shuffle):
         return dataset
 
     # Sort the glob output by file name (by increasing indexes).
-    #pts = sorted(glob.glob(args.bert_data_path + '.' + corpus_type + '.[0-9]*.pt'))
-    pts = sorted(glob.glob(args.bert_data_path+os.sep + '*.pt'))
+    pts = sorted(glob.glob(os.path.join(args.bert_data_path,  corpus_type + '*.pt')))
+    #pts = sorted(glob.glob(args.bert_data_path+os.sep + '*.pt'))
     print(f'pts {pts}')
     if pts:
         if (shuffle):

@@ -11,9 +11,14 @@ from models.optimizers import Optimizer
 
 def build_optim(args, model, checkpoint):
     """ Build optimizer """
-
-    if checkpoint is not None:
-        optim = checkpoint['optim']
+    print(checkpoint.keys())
+    print('optim' in checkpoint.keys())
+    optim_key = 'optim' if 'optim' in checkpoint.keys() else 'optims' if 'optims' in checkpoint.keys() else None
+    if checkpoint is not None and optim_key:
+        if isinstance(checkpoint[optim_key],list):
+            optim = checkpoint[optim_key][0]
+        else:
+            optim = checkpoint[optim_key]
         saved_optimizer_state_dict = optim.optimizer.state_dict()
         optim.optimizer.load_state_dict(saved_optimizer_state_dict)
         if args.visible_gpus != '-1':

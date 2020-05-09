@@ -25,4 +25,7 @@ python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert
 python train.py -task abs -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/abs -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/abs_bert_cnndm -test_from ./model_files/abs/model_step_148000.pt
 
 
-python train.py -task ext -mode train -bert_data_path ./data/sample -ext_dropout 0.1 -model_path ./model_files/trained/ext -lr 2e-3 -report_every 1 -save_checkpoint_steps 1 -batch_size 500 -train_steps 5 -accum_count 2 -log_file ./logs/train_ext -use_interval true -warmup_steps 1 -max_pos 512 -train_from
+python train.py -task ext -mode train -bert_data_path ./data/sample -ext_dropout 0.1 -model_path ./model_files/trained/ext -lr 2e-3 -report_every 1 -save_checkpoint_steps 1 -batch_size 500 -train_steps 186006  -accum_count 2 -log_file ./logs/train_ext -use_interval true -warmup_steps 1 -max_pos 512 -train_from ./model_files/pre_trained/ext/bertext_cnndm_transformer.pt
+
+
+python train.py -mode train -accum_count 5 -batch_size 300 -bert_data_path BERT_DATA_PATH -dec_dropout 0.1 -log_file ../../logs/cnndm_baseline -lr 0.05 -model_path MODEL_PATH -save_checkpoint_steps 2000 -seed 777 -sep_optim false -train_steps 200000 -use_bert_emb true -use_interval true -warmup_steps 8000  -visible_gpus 0,1,2,3 -max_pos 512 -report_every 50 -enc_hidden_size 512  -enc_layers 6 -enc_ff_size 2048 -enc_dropout 0.1 -dec_layers 6 -dec_hidden_size 512 -dec_ff_size 2048 -encoder baseline -task abs

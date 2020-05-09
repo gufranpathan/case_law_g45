@@ -12,29 +12,40 @@ sudo yum install git
 git clone https://github.com/gufranpathan/case_law_g45.git
 sudo yum install python36 python36-pip
 
+cd case_law_g45
 python3 -m venv venv
 source venv/bin/activate
-pip install wheel -y
+pip install wheel
 pip install https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
 pip install pytorch-transformers tensorboardX pyrouge gdown jupyter
 
+sudo yum install "perl(XML::Parser)" -y
+sudo yum install "perl(DB_File)" -y
+
 pyrouge_set_rouge_path ./ROUGE-1.5.5
 
-mkdir model_files && cd model_files && mkdir ext && cd ext
+mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/ext && cd model_files/pre_trained/ext
 gdown https://drive.google.com/uc?id=1kKWoV0QCbeIuFt85beQgJ4v0lujaXobJ
 unzip bertext_cnndm_transformer.zip
 
-cd .. && mkdir abs && cd abs
+mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/abs_bertextabs && cd model_files/pre_trained/abs_bertextabs
 gdown https://drive.google.com/uc?id=1Qksodfu4rHig_-h2UYph8e4XlRN_3rwb
 unzip bertsumextabs_cnndm_final_model.zip
 
+mkdir model_files && mkdir model_files/pre_trained && mkdir model_files/pre_trained/abs_transformer && cd model_files/pre_trained/abs_transformer
+gdown https://drive.google.com/uc?id
+unzip .zip
+
+
 cd .. 
 mkdir results
+mkdir results/pre_trained/
+mkdir results/trained/
 mkdir logs
 
-sudo yum install "perl(XML::Parser)" -y
-sudo yum install "perl(DB_File)" -y
-gdown https://drive.google.com/uc?id=1CPFDr1SVipWIlr8kJCizM4e1MVS3bLk5
+mkdir data && mkdir data/train && mkdir data/test && mkdir data/val
+gdown data
+cd ..
 
 
 python train.py -task ext -mode test -batch_size 3000 -test_batch_size 500 -bert_data_path ./data/sample -log_file ./logs/val_abs_bert_cnndm -model_path  ./model_files/ext -sep_optim true -use_interval true -max_pos 512 -max_length 200 -alpha 0.95 -min_length 50 -result_path ./results/ext_bert_cnndm -test_from ./model_files/ext/bertext_cnndm_transformer.pt -n_cpus 32
