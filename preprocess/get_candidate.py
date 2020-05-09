@@ -174,7 +174,6 @@ def get_candidates_mp(args):
     # load original data and indices
     global original_data, sent_ids
     original_data = load_jsonl(args.data_path)
-    original_data = original_data[0]
     sent_ids = load_jsonl(args.index_path)
     n_files = len(original_data)
     assert len(sent_ids) == len(original_data)
