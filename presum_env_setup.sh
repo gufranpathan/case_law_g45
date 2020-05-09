@@ -62,7 +62,7 @@ c.IPKernelApp.pylab = 'inline'  # if you want plotting support always in your no
 
 # Notebook config
 c.NotebookApp.certfile = u'/home/ubuntu/certs/mycert.pem' #location of your certificate file
-c.NotebookApp.ip = '0.0.0.0'
+c.NotebookApp.ip = '*'
 c.NotebookApp.open_browser = False  #so that the ipython notebook does not opens up a browser by default
 c.NotebookApp.password = u'sha1:ed206bfd60ce:731f99ffbbdea37f51a55800b39da202e6056dd3'  #the encrypted password we generated above
 # Set the port to 8888, the port we set up in the AWS EC2 set-up
