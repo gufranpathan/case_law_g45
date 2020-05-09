@@ -5,8 +5,9 @@ sudo yum install xfsprogs
 sudo mkfs -t xfs /dev/xvdf
 sudo mkdir /data
 sudo mount /dev/nvme1n1 /data
-cd /data
 sudo chmod 777 -R data
+cd /data
+
 
 sudo yum install git
 
