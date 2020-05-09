@@ -43,8 +43,9 @@ mkdir results/pre_trained/
 mkdir results/trained/
 mkdir logs
 
-mkdir data && mkdir data/train && mkdir data/test && mkdir data/val
-gdown data
+mkdir data && cd data
+gdown https://drive.google.com/uc?id=17JqUauBz0AN28BdPJ9USYRksVv92w8sh
+unzip data.zip
 cd ..
 
 
